@@ -15,6 +15,7 @@
 
 package com.flipkart.aesop.eventconsumer;
 
+import com.flipkart.aesop.apicaller.AbstractAPICaller;
 import com.flipkart.aesop.processor.DestinationEventProcessor;
 import com.flipkart.aesop.event.implementation.SourceEventFactory;
 import com.flipkart.aesop.eventconsumer.implementation.DefaultEventConsumerImpl;

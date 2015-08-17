@@ -8,6 +8,15 @@ import com.linkedin.databus.core.DbusOpcode;
 import org.trpr.platform.core.impl.logging.LogFactory;
 import org.trpr.platform.core.spi.logging.Logger;
 
+import java.io.*;
+import java.net.*;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+
 /**
  * Sample Delete Data Layer. Persists {@link DbusOpcode#DELETE} events to Log File.
  * @author Jagadeesh Huliyar
@@ -20,11 +29,9 @@ public class ConsoleAppenderDeleteDataLayer extends DeleteDestinationStoreProces
 	private static final Logger LOGGER = LogFactory.getLogger(ConsoleAppenderDeleteDataLayer.class);
 
 	@Override
-	protected  ConsumerCallbackResult delete(AbstractEvent event)
-	{
-		LOGGER.info("DESTINATION_EVENT:DELETE:. Event is " + event);
+	protected  ConsumerCallbackResult delete(AbstractEvent event) {
+		LOGGER.info("DESTINATION_VENT:DELETE:. Event is " + event);
 
         return ConsumerCallbackResult.SUCCESS;
 	}
-
 }

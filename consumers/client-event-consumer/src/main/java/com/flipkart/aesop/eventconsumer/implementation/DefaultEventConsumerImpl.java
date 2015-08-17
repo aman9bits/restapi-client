@@ -130,7 +130,8 @@ public class DefaultEventConsumerImpl extends AbstractEventConsumer
             /* Post Mapping of Source Event , calling PreMappingTransformer for the destination event */
             AbstractEvent destinationEventAfterTransformation = (postMappingTransformer == null ?
                     destinationEvent : postMappingTransformer.transform(destinationEvent));
-
+            LOGGER.info("Running Once more");
+            LOGGER.info(destinationEvent.toString());
             DestinationEventProcessor destinationEventProcessor =
 			        destinationProcessorMap.get(destinationEvent.getEventType());
 

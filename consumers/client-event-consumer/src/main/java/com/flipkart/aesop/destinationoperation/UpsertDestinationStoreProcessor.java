@@ -19,6 +19,9 @@ import com.flipkart.aesop.event.AbstractEvent;
 import com.flipkart.aesop.processor.DestinationEventProcessor;
 import com.linkedin.databus.client.pub.ConsumerCallbackResult;
 import com.linkedin.databus.core.DbusOpcode;
+import org.apache.camel.processor.LoggingErrorHandler;
+import org.trpr.platform.core.impl.logging.LogFactory;
+import org.trpr.platform.core.spi.logging.Logger;
 
 import javax.naming.OperationNotSupportedException;
 
@@ -28,10 +31,12 @@ import javax.naming.OperationNotSupportedException;
  */
 public abstract class UpsertDestinationStoreProcessor implements DestinationEventProcessor
 {
-	public ConsumerCallbackResult processDestinationEvent(AbstractEvent event) throws OperationNotSupportedException
+    //private static final Logger LOGGER = LogFactory.getLogger(ApiCallerUpsertDataLayer.class);
+    public ConsumerCallbackResult processDestinationEvent(AbstractEvent event) throws OperationNotSupportedException
 	{
 		if (event.getEventType() == DbusOpcode.UPSERT)
 		{
+           // LOGGER.info("Calling upsert now!");
 			return upsert(event);
 		}
 		else
